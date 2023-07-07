@@ -1,3 +1,90 @@
-[gd_scene format=3 uid="uid://vrnr4nq5t25s"]
+[gd_scene load_steps=3 format=3 uid="uid://vrnr4nq5t25s"]
+
+[ext_resource type="Texture2D" uid="uid://b0kl57dpjfg3m" path="res://icon.svg" id="1_kl45q"]
+[ext_resource type="PackedScene" uid="uid://cmtlp3n3mfx0s" path="res://entities/skier.tscn" id="1_n6rsl"]
 
 [node name="Main" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(2.96, 8.28, 13.61, 1)
+position = Vector2(547, 359)
+scale = Vector2(10, 10)
+texture = ExtResource("1_kl45q")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+modulate = Color(2.96, 8.28, 13.61, 1)
+position = Vector2(1809, 381)
+scale = Vector2(10, 10)
+texture = ExtResource("1_kl45q")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+modulate = Color(2.96, 8.28, 13.61, 1)
+position = Vector2(545, 1661)
+scale = Vector2(10, 10)
+texture = ExtResource("1_kl45q")
+
+[node name="Sprite2D4" type="Sprite2D" parent="."]
+modulate = Color(2.96, 8.28, 13.61, 1)
+position = Vector2(561, -883)
+scale = Vector2(10, 10)
+texture = ExtResource("1_kl45q")
+
+[node name="Sprite2D10" type="Sprite2D" parent="."]
+modulate = Color(2.96, 8.28, 13.61, 1)
+position = Vector2(545, -2123)
+scale = Vector2(10, 10)
+texture = ExtResource("1_kl45q")
+
+[node name="Sprite2D11" type="Sprite2D" parent="."]
+modulate = Color(2.96, 8.28, 13.61, 1)
+position = Vector2(585, 2897)
+scale = Vector2(10, 10)
+texture = ExtResource("1_kl45q")
+
+[node name="Sprite2D5" type="Sprite2D" parent="."]
+modulate = Color(2.96, 8.28, 13.61, 1)
+position = Vector2(1761, -835)
+scale = Vector2(10, 10)
+texture = ExtResource("1_kl45q")
+
+[node name="Sprite2D6" type="Sprite2D" parent="."]
+modulate = Color(2.96, 8.28, 13.61, 1)
+position = Vector2(1825, 1693)
+scale = Vector2(10, 10)
+texture = ExtResource("1_kl45q")
+
+[node name="Sprite2D7" type="Sprite2D" parent="."]
+modulate = Color(2.96, 8.28, 13.61, 1)
+position = Vector2(-639, 1693)
+scale = Vector2(10, 10)
+texture = ExtResource("1_kl45q")
+
+[node name="Sprite2D8" type="Sprite2D" parent="."]
+modulate = Color(2.96, 8.28, 13.61, 1)
+position = Vector2(-671, 365)
+scale = Vector2(10, 10)
+texture = ExtResource("1_kl45q")
+
+[node name="Sprite2D9" type="Sprite2D" parent="."]
+modulate = Color(2.96, 8.28, 13.61, 1)
+position = Vector2(-671, -819)
+scale = Vector2(10, 10)
+texture = ExtResource("1_kl45q")
+
+[node name="Skier" parent="." instance=ExtResource("1_n6rsl")]
+position = Vector2(512, -2168)
+
+[node name="Skier2" parent="." instance=ExtResource("1_n6rsl")]
+position = Vector2(245, -1644)
+
+[node name="Skier3" parent="." instance=ExtResource("1_n6rsl")]
+position = Vector2(776, -783)
+
+[node name="Skier4" parent="." instance=ExtResource("1_n6rsl")]
+position = Vector2(-347, 1424)
+
+[node name="Skier5" parent="." instance=ExtResource("1_n6rsl")]
+position = Vector2(656, 535)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.1, 0.1)
