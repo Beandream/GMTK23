@@ -19,6 +19,9 @@ func _physics_process(delta):
 		timerCount = 0
 		steering = randi_range(-1, 1)
 	
+	avoid_yeti()
+	
+	
 	velocity.x += steering * SPEED
 
 
@@ -30,10 +33,19 @@ func _physics_process(delta):
 		velocity.y += (SPEED / 2)
 		
 	
+	
 	if position.y > 600:
 		reset()
 		
 	move_and_slide()
+
+func avoid_yeti():
+	for body in $Vision.get_overlapping_bodies():
+		if body.is_in_group("yeti"):
+			if body.position.x > position.x:
+				steering = -1
+			else:
+				steering = 1
 
 func reset():
 		position = Vector2(randf_range(-700, 700), -500)

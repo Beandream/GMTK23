@@ -25,7 +25,7 @@ damping_max = 400.0
 scale_min = 0.1
 scale_max = 0.1
 
-[node name="Yeti" type="CharacterBody2D"]
+[node name="Yeti" type="CharacterBody2D" groups=["yeti"]]
 scale = Vector2(0.2, 0.2)
 script = ExtResource("1_meati")
 

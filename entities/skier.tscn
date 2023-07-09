@@ -64,3 +64,8 @@ trail_section_subdivisions = 128
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_1a8x1")
+
+[node name="Vision" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Vision"]
+polygon = PackedVector2Array(0, 0, 2580, 1410, -2180, 1480)
