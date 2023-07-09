@@ -1,13 +1,29 @@
-[gd_scene load_steps=5 format=3 uid="uid://bqiviitydcnws"]
+[gd_scene load_steps=7 format=3 uid="uid://bqiviitydcnws"]
 
 [ext_resource type="Texture2D" uid="uid://b0kl57dpjfg3m" path="res://icon.svg" id="1_11qvy"]
 [ext_resource type="Script" path="res://entities/yeti/yeti.gd" id="1_meati"]
+[ext_resource type="Script" path="res://entities/yeti/CameraEffects.gd" id="3_j2e73"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_uidno"]
 radius = 65.6201
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xx5hj"]
 radius = 148.071
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_usoyu"]
+particle_flag_disable_z = true
+spread = 180.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 800.0
+initial_velocity_max = 1000.0
+angular_velocity_min = 19.0
+angular_velocity_max = 19.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+damping_min = 200.0
+damping_max = 400.0
+scale_min = 0.1
+scale_max = 0.1
 
 [node name="Yeti" type="CharacterBody2D"]
 scale = Vector2(0.2, 0.2)
@@ -23,8 +39,16 @@ shape = SubResource("CircleShape2D_uidno")
 [node name="Camera2D" type="Camera2D" parent="."]
 position_smoothing_enabled = true
 position_smoothing_speed = 10.0
+script = ExtResource("3_j2e73")
 
 [node name="AttackRadius" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRadius"]
 shape = SubResource("CircleShape2D_xx5hj")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+emitting = false
+process_material = SubResource("ParticleProcessMaterial_usoyu")
+texture = ExtResource("1_11qvy")
+one_shot = true
+explosiveness = 1.0
