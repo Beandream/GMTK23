@@ -8,11 +8,21 @@ radius = 64.0
 height = 192.0
 
 [node name="Skier" type="CharacterBody2D"]
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.1, 0.1)
 script = ExtResource("1_5qhrq")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(1, 1.5)
+texture = ExtResource("1_00jaq")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Sprite2D"]
+position = Vector2(-40, 26.6667)
+scale = Vector2(0.15625, 1.875)
+texture = ExtResource("1_00jaq")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Sprite2D"]
+position = Vector2(40, 26.6667)
+scale = Vector2(0.15625, 1.875)
 texture = ExtResource("1_00jaq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const SPEED = 10
+const SPEED = 5
 const DRAG = 0.02
 
 var steering = 0
@@ -21,7 +21,8 @@ func _physics_process(delta):
 	
 	velocity.x += steering * SPEED
 
-	$Sprite2D.rotation = -steering * 45
+
+	$Sprite2D.rotation = lerp($Sprite2D.rotation, (velocity.angle()) - (PI / 2), 0.5)
 
 	if steering == 0:
 		velocity.y += SPEED
@@ -29,7 +30,7 @@ func _physics_process(delta):
 		velocity.y += (SPEED / 2)
 		
 	
-	if position.y > 3000:
-		position = Vector2(600, -2000)
+	if position.y > 600:
+		position = Vector2(randf_range(-700, 700), -500)
 	
 	move_and_slide()
