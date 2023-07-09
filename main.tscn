@@ -1,10 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://vrnr4nq5t25s"]
+[gd_scene load_steps=3 format=3 uid="uid://vrnr4nq5t25s"]
 
+[ext_resource type="PackedScene" uid="uid://bqiviitydcnws" path="res://entities/yeti/yeti.tscn" id="2_j8eod"]
 [ext_resource type="PackedScene" uid="uid://l47tjt8yxqvj" path="res://world/level.tscn" id="2_xa3v5"]
 
 [node name="Main" type="Node2D"]
 
 [node name="Level" parent="." instance=ExtResource("2_xa3v5")]
 
-[node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(0.75, 0.75)
+[node name="Yeti" parent="." instance=ExtResource("2_j8eod")]

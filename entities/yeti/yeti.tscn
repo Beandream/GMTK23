@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://bqiviitydcnws"]
+
+[ext_resource type="Texture2D" uid="uid://b0kl57dpjfg3m" path="res://icon.svg" id="1_11qvy"]
+[ext_resource type="Script" path="res://entities/yeti/yeti.gd" id="1_meati"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uidno"]
+radius = 65.6201
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xx5hj"]
+radius = 148.071
+
+[node name="Yeti" type="CharacterBody2D"]
+scale = Vector2(0.2, 0.2)
+script = ExtResource("1_meati")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 1)
+texture = ExtResource("1_11qvy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_uidno")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
+
+[node name="AttackRadius" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRadius"]
+shape = SubResource("CircleShape2D_xx5hj")

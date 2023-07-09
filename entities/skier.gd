@@ -31,6 +31,10 @@ func _physics_process(delta):
 		
 	
 	if position.y > 600:
+		reset()
+		
+	move_and_slide()
+
+func reset():
 		position = Vector2(randf_range(-700, 700), -500)
 	
-	move_and_slide()
