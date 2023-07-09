@@ -1,0 +1,84 @@
+[gd_scene load_steps=8 format=3 uid="uid://i2cst653cio"]
+
+[ext_resource type="Script" path="res://entities/skiPatrol.gd" id="1_qtcm5"]
+[ext_resource type="Texture2D" uid="uid://b0kl57dpjfg3m" path="res://icon.svg" id="2_f3i0f"]
+
+[sub_resource type="Gradient" id="Gradient_pe50x"]
+colors = PackedColorArray(1.5, 1.5, 1.5, 1, 1.51, 1.5, 1.5, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_n8koh"]
+gradient = SubResource("Gradient_pe50x")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_a86rc"]
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+spread = 0.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 1.0
+initial_velocity_max = 1.0
+angular_velocity_max = 75.79
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+scale_min = 0.02
+scale_max = 0.02
+color = Color(1.5, 1.51, 1.5, 1)
+color_ramp = SubResource("GradientTexture1D_n8koh")
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1a8x1"]
+radius = 64.0
+height = 192.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_f824x"]
+radius = 160.0
+height = 640.0
+
+[node name="SkiPatrol" type="CharacterBody2D" groups=["skiPatrol"]]
+scale = Vector2(0.1, 0.1)
+script = ExtResource("1_qtcm5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 0, 0, 1)
+scale = Vector2(1, 1.5)
+texture = ExtResource("2_f3i0f")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Sprite2D"]
+position = Vector2(-40, 26.6667)
+scale = Vector2(0.15625, 1.875)
+texture = ExtResource("2_f3i0f")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Sprite2D"]
+position = Vector2(40, 26.6667)
+scale = Vector2(0.15625, 1.875)
+texture = ExtResource("2_f3i0f")
+
+[node name="GPUParticles2D2" type="GPUParticles2D" parent="Sprite2D"]
+position = Vector2(40, -86.6666)
+amount = 200
+process_material = SubResource("ParticleProcessMaterial_a86rc")
+texture = ExtResource("2_f3i0f")
+trail_lifetime = 2.0
+trail_section_subdivisions = 128
+
+[node name="GPUParticles2D3" type="GPUParticles2D" parent="Sprite2D"]
+position = Vector2(-40, -86.6667)
+amount = 200
+process_material = SubResource("ParticleProcessMaterial_a86rc")
+texture = ExtResource("2_f3i0f")
+trail_lifetime = 2.0
+trail_section_subdivisions = 128
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_1a8x1")
+
+[node name="Vision" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Vision"]
+polygon = PackedVector2Array(0, 0, 2580, 1410, -2180, 1480)
+
+[node name="AttackRadius" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRadius"]
+position = Vector2(0, 100)
+shape = SubResource("CapsuleShape2D_f824x")
+
+[connection signal="body_entered" from="AttackRadius" to="." method="_on_attack_radius_body_entered"]

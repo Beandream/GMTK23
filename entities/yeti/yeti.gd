@@ -17,6 +17,11 @@ func _physics_process(delta):
 
 	move_and_slide()
 
+func hurt():
+	$HurtParticles.restart()
+	$HurtParticles.emitting = true
+	
+
 func do_attack():
 	$Sprite2D.scale = Vector2(1.4, 1.4)
 	velocity *= 5
@@ -26,3 +31,4 @@ func do_attack():
 			$GPUParticles2D.restart()
 			$GPUParticles2D.emitting = true
 			$Camera2D.screen_shake(randf_range(50, 60), 0.2)
+			Globals.change_score(1)

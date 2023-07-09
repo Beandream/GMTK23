@@ -4,9 +4,18 @@ var TREE_SCENE = preload("res://world/tree.tscn")
 
 var SKIER_SCENE = preload("res://entities/skier.tscn")
 
+var SKI_PATROL = preload("res://entities/skiPatrol.tscn")
+
 const TREE_COUNT = 400
 
 const SKIER_COUNT = 20
+const SKI_PATROL_COUNT = 20
+
+func generate_ski_patrol():
+	for i in SKI_PATROL_COUNT:
+		var new_patrol = SKI_PATROL.instantiate()
+		new_patrol.position = Vector2(randf_range(-700, 700), randf_range(-500, -1000))
+		add_child(new_patrol)
 
 func generate_trees():
 	for i in TREE_COUNT:
@@ -28,6 +37,7 @@ func generate_skiers():
 func _ready():
 	generate_trees()
 	generate_skiers()
+	generate_ski_patrol()
 	pass # Replace with function body.
 
 

@@ -5,6 +5,10 @@ var time_duration = 0
 
 var intensity = 0
 
+func _ready():
+#	Globals.trigger_screen_shake.connect(screen_shake())
+	pass
+
 func screen_shake(_intesity = 1, duration = 1):
 	intensity = _intesity
 	time_duration = duration

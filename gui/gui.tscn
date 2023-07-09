@@ -1,0 +1,45 @@
+[gd_scene load_steps=2 format=3 uid="uid://y700xeuh8arf"]
+
+[ext_resource type="Script" path="res://gui/gui.gd" id="1_ebwyh"]
+
+[node name="GUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ebwyh")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 26.0
+grow_horizontal = 2
+
+[node name="ScoreLabel" type="Label" parent="HBoxContainer"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Score:"
+horizontal_alignment = 2
+
+[node name="ScoreText" type="Label" parent="HBoxContainer"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0"
+
+[node name="HealthLabel" type="Label" parent="HBoxContainer"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Health:"
+horizontal_alignment = 2
+
+[node name="HealthText" type="Label" parent="HBoxContainer"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "100"

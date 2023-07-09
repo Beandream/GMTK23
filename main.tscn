@@ -1,10 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://vrnr4nq5t25s"]
+[gd_scene load_steps=4 format=3 uid="uid://vrnr4nq5t25s"]
 
 [ext_resource type="PackedScene" uid="uid://bqiviitydcnws" path="res://entities/yeti/yeti.tscn" id="2_j8eod"]
 [ext_resource type="PackedScene" uid="uid://l47tjt8yxqvj" path="res://world/level.tscn" id="2_xa3v5"]
+[ext_resource type="PackedScene" uid="uid://y700xeuh8arf" path="res://gui/gui.tscn" id="3_em4fs"]
 
 [node name="Main" type="Node2D"]
 
 [node name="Level" parent="." instance=ExtResource("2_xa3v5")]
 
 [node name="Yeti" parent="." instance=ExtResource("2_j8eod")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="GUI" parent="CanvasLayer" instance=ExtResource("3_em4fs")]

@@ -52,3 +52,11 @@ process_material = SubResource("ParticleProcessMaterial_usoyu")
 texture = ExtResource("1_11qvy")
 one_shot = true
 explosiveness = 1.0
+
+[node name="HurtParticles" type="GPUParticles2D" parent="."]
+modulate = Color(1, 0, 0, 1)
+emitting = false
+process_material = SubResource("ParticleProcessMaterial_usoyu")
+texture = ExtResource("1_11qvy")
+one_shot = true
+explosiveness = 1.0
